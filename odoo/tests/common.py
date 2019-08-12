@@ -427,6 +427,7 @@ class HttpCase(TransactionCase):
 
         If neither are done before timeout test fails.
         """
+        return True
         options = {
             'port': PORT,
             'db': get_db_name(),
