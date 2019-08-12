@@ -3,28 +3,32 @@
 # * mrp
 # 
 # Translators:
+# Adriel Kotviski <kotviski@gmail.com>, 2016
+# Cezar José Sant Anna Junior <cezar.santanna@gmail.com>, 2016
+# falexandresilva <falexandresilva@gmail.com>, 2016
+# Clemilton Clementino <clemylton@hotmail.com>, 2016
+# Anderson Fratuci <ander.frat@gmail.com>, 2016
+# Ademílson F. Tonato <apraqueisso@gmail.com>, 2016
+# Luiz Carlos de Lima <luiz.carlos@akretion.com.br>, 2016
 # grazziano <gra.negocia@gmail.com>, 2016
 # Mateus Lopes <mateus1@gmail.com>, 2016
 # Martin Trigaux, 2016
-# Rodrigo de Almeida Sottomaior Macedo <rmsolucoeseminformatic4@gmail.com>, 2016
-# Anderson Fratuci <ander.frat@gmail.com>, 2016
-# falexandresilva <falexandresilva@gmail.com>, 2016
 # danimaribeiro <danimaribeiro@gmail.com>, 2016
-# Adriel Kotviski <kotviski@gmail.com>, 2016
-# Cezar José Sant Anna Junior <cezar.santanna@gmail.com>, 2016
-# Luiz Carlos de Lima <luiz.carlos@akretion.com.br>, 2016
-# Ademílson F. Tonato <apraqueisso@gmail.com>, 2016
-# Clemilton Clementino <clemylton@hotmail.com>, 2016
-# Silmar <pinheirosilmar@gmail.com>, 2017
+# Rodrigo de Almeida Sottomaior Macedo <rmsolucoeseminformatic4@gmail.com>, 2017
 # Danilo Rodrigues, 2017
 # Diego Bittencourt <diegomb86@gmail.com>, 2018
+# Luciano Giacomazzi <lucianogiacomazzi@gmail.com>, 2018
+# Silmar <pinheirosilmar@gmail.com>, 2018
+# Luiz Carareto Alonso <Luiz.cararetoalonso@gmail.com>, 2019
+# Marcel Savegnago <marcel.savegnago@gmail.com>, 2019
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 13:27+0000\n"
-"PO-Revision-Date: 2017-06-23 13:27+0000\n"
-"Last-Translator: Diego Bittencourt <diegomb86@gmail.com>, 2018\n"
+"PO-Revision-Date: 2016-09-07 09:23+0000\n"
+"Last-Translator: Marcel Savegnago <marcel.savegnago@gmail.com>, 2019\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/odoo/teams/41243/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1960,7 +1964,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:mrp.view_mrp_production_filter
 #: selection:mrp.production,state:0
 msgid "Planned"
-msgstr ""
+msgstr "Planejado"
 
 #. module: mrp
 #: model:ir.ui.view,arch_db:mrp.mrp_production_workcenter_form_view_inherit
@@ -2250,6 +2254,11 @@ msgstr "Quantidade Produzida"
 #: model:ir.model.fields,field_description:mrp.field_change_production_qty_product_qty
 #: model:ir.model.fields,field_description:mrp.field_mrp_production_product_qty
 msgid "Quantity To Produce"
+msgstr ""
+
+#. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_stock_move_quantity_done_store
+msgid "Quantity done store"
 msgstr ""
 
 #. module: mrp
@@ -2883,6 +2892,11 @@ msgid ""
 msgstr ""
 
 #. module: mrp
+#: model:ir.ui.view,arch_db:mrp.mrp_production_workcenter_form_view_inherit
+msgid "Time the currently logged user spent on this workorder."
+msgstr ""
+
+#. module: mrp
 #: model:ir.ui.view,arch_db:mrp.mrp_production_form_view
 msgid "To Consume"
 msgstr "Para Consumo"
@@ -3299,7 +3313,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:mrp.mrp_workorder_report
 #: model:ir.actions.act_window,name:mrp.mrp_workorder_workcenter_report
 msgid "Work Orders Performance"
-msgstr ""
+msgstr "Desempenho das Ordens de Serviço"
 
 #. module: mrp
 #: model:ir.actions.act_window,name:mrp.action_mrp_workorder_production
@@ -3334,12 +3348,13 @@ msgstr ""
 #: code:addons/mrp/models/mrp_production.py:520
 #, python-format
 msgid "Work order %s is still running"
-msgstr ""
+msgstr "Ordem de serviço %s está em andamento"
 
 #. module: mrp
 #: model:ir.ui.view,arch_db:mrp.mrp_workcenter_kanban
 msgid "Work orders in progress. Click to block work center."
 msgstr ""
+"Ordem de serviço em progresso. Clique para bloquear o centro de trabalho."
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_config_settings_group_product_variant
@@ -3422,12 +3437,14 @@ msgstr ""
 msgid ""
 "You can not cancel production order, a work order is still in progress."
 msgstr ""
+"Você não pode cancelar a ordem de produção, uma ordem de serviço ainda está "
+"em andamento."
 
 #. module: mrp
 #: code:addons/mrp/models/mrp_workorder.py:231
 #, python-format
 msgid "You can not change the finished work order."
-msgstr ""
+msgstr "Você não pode alterar uma ordem de serviço já concluída."
 
 #. module: mrp
 #: code:addons/mrp/models/mrp_bom.py:91
@@ -3541,12 +3558,12 @@ msgstr "dias"
 #. module: mrp
 #: model:ir.ui.view,arch_db:mrp.mrp_production_workcenter_form_view_inherit
 msgid "from"
-msgstr ""
+msgstr "de"
 
 #. module: mrp
 #: model:ir.ui.view,arch_db:mrp.mrp_workcenter_view
 msgid "hour(s)"
-msgstr ""
+msgstr "Hora(s)"
 
 #. module: mrp
 #: model:ir.model,name:mrp.model_ir_attachment
@@ -3603,7 +3620,7 @@ msgstr "até"
 #. module: mrp
 #: model:ir.ui.view,arch_db:mrp.mrp_routing_workcenter_form_view
 msgid "work orders"
-msgstr ""
+msgstr "ordens de serviço"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_routing_workcenter_worksheet

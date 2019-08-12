@@ -3,21 +3,23 @@
 # * mail
 # 
 # Translators:
+# José Gomes <jg@opencloud.pro>, 2016
+# Daniel C Santos <dcs@thinkopensolutions.pt>, 2016
+# Vitor Fernandes <vmlf01@gmail.com>, 2016
+# Manuela Silva <inactive+h_manuela_rodsilva@transifex.com>, 2016
+# Ricardo Correia <rcorreiavv@gmail.com>, 2016
 # Ricardo Martins <ricardo.nbs.martins@gmail.com>, 2016
 # Martin Trigaux, 2016
-# Manuela Silva <manuela.silva@sky.com>, 2016
-# Ricardo Correia <rcorreiavv@gmail.com>, 2016
-# Vitor Fernandes <vmlf01@gmail.com>, 2016
-# José Gomes <jg@opencloud.pro>, 2016
-# Manuela Silva <inactive+h_manuela_rodsilva@transifex.com>, 2016
-# Daniel C Santos <dcs@thinkopensolutions.pt>, 2016
+# MS <manuelarodsilva@gmail.com>, 2018
+# Diogo Fonseca <dsf@thinkopensolutions.pt>, 2018
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-14 15:53+0000\n"
-"PO-Revision-Date: 2016-11-14 15:53+0000\n"
-"Last-Translator: Daniel C Santos <dcs@thinkopensolutions.pt>, 2016\n"
+"PO-Revision-Date: 2016-09-07 09:22+0000\n"
+"Last-Translator: Diogo Fonseca <dsf@thinkopensolutions.pt>, 2018\n"
 "Language-Team: Portuguese (https://www.transifex.com/odoo/teams/41243/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -622,7 +624,7 @@ msgstr ""
 #. module: mail
 #: selection:mail.alias,alias_contact:0
 msgid "Authenticated Employees"
-msgstr ""
+msgstr "Funcionários autenticados"
 
 #. module: mail
 #: selection:mail.alias,alias_contact:0
@@ -4516,7 +4518,7 @@ msgstr "Utilizadores"
 #: code:addons/mail/models/mail_channel.py:676
 #, python-format
 msgid "Users in this channel: %s %s and you."
-msgstr ""
+msgstr "Utilizadores neste canal: %s %s e você."
 
 #. module: mail
 #: code:addons/mail/models/mail_thread.py:672
@@ -4801,7 +4803,7 @@ msgstr ""
 #: code:addons/mail/models/mail_thread.py:938
 #, python-format
 msgid "model %s does not accept document update"
-msgstr ""
+msgstr "modelo %s não aceita atualização de documento"
 
 #. module: mail
 #: code:addons/mail/models/mail_thread.py:931

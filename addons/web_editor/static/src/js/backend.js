@@ -57,7 +57,8 @@ var FieldTextHtmlSimple = widget.extend({
         this.$translate.remove();
         this.$translate = $();
         // Triggers a mouseup to refresh the editor toolbar
-        this.$content.trigger('mouseup');
+        var mouseupEvent = $.Event('mouseup', {'setStyleInfoFromEditable': true});
+        this.$content.trigger(mouseupEvent);
         return def;
     },
     initialize_content: function () {
@@ -146,7 +147,7 @@ var FieldTextHtmlSimple = widget.extend({
         this.$content.html(this.text_to_html(value));
         if (this.get("effective_readonly")) {
             this.resize();
-        } else {
+        } else if (this.options['style-inline']) {
             transcoder.style_to_class(this.$content);
         }
         if (this.$content.is(document.activeElement)) {
@@ -170,7 +171,11 @@ var FieldTextHtmlSimple = widget.extend({
             transcoder.class_to_style(this.$content);
             transcoder.font_to_img(this.$content);
         }
-        this.internal_set_value(this.$content.html());
+        var value = this.$content.html();
+        if (this.get('value') === false && value === '<p><br></p>') {
+            value = false;
+        }
+        this.internal_set_value(value);
     },
     destroy_content: function () {
         $(".oe-view-manager-content").off("scroll");
@@ -194,8 +199,6 @@ var FieldTextHtml = widget.extend({
     },
     start: function () {
         var self = this;
-        // Do not Forward port in >= 11.0
-        this.$formButtons = this.getParent().$buttons;
         this.callback = _.uniqueId('FieldTextHtml_');
         window.odoo[this.callback+"_editor"] = function (EditorBar) {
             setTimeout(function () {
@@ -293,13 +296,32 @@ var FieldTextHtml = widget.extend({
         src += "&datarecord="+ encodeURIComponent(JSON.stringify(datarecord));
         return src;
     },
+    _toggleFormButtons: function(enable) {
+        if (this.$formButtons) {
+            if (enable) {
+                this.$formButtons.find('button').removeClass('o_disabled').attr('disabled', false);
+            } else {
+                this.$formButtons.find('button').addClass('o_disabled').attr('disabled', true);
+            }
+        }
+    },
     initialize_content: function () {
         var self = this;
+
+        // Do not Forward port in >= 11.0
+        function getModalButtons() {
+            var $modal = self.getParent().getParent();
+            if ($modal && $modal.$footer) {
+                return $modal.$footer;
+            }
+        }
+
+        this.$formButtons = this.getParent().$buttons || getModalButtons();
         this.$el.closest('.modal-body').css('max-height', 'none');
         this.$iframe = this.$el.find('iframe');
         // deactivate any button to avoid saving a not ready iframe
         // Do not Forward port in >= 11.0
-        this.$formButtons.find('button').addClass('o_disabled').attr('disabled', true);
+        this._toggleFormButtons(false);
         this.document = null;
         this.$body = $();
         this.$content = $();
@@ -327,7 +349,7 @@ var FieldTextHtml = widget.extend({
         this.render_value();
         // reactivate all the buttons when the field's content (the iframe) is loaded
         // Do not Forward port in >= 11.0
-        this.$formButtons.find('button').removeClass('o_disabled').attr('disabled', false);
+        this._toggleFormButtons(true);
         setTimeout(function () {
             self.add_button();
             setTimeout(self.resize,0);
@@ -426,7 +448,7 @@ var FieldTextHtml = widget.extend({
     },
     destroy: function () {
         // Do not Forward port in >= 11.0
-        this.$formButtons.find('button').removeClass('o_disabled').attr('disabled', false);
+        this._toggleFormButtons(true);
         $(window).off('resize', this.resize);
         delete window.odoo[this.callback+"_editor"];
         delete window.odoo[this.callback+"_content"];
