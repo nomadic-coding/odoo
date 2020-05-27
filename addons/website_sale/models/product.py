@@ -198,7 +198,7 @@ class Product(models.Model):
         partner = self.env.user.partner_id
         current_website = self.env['website'].get_current_website()
         pricelist = current_website.get_current_pricelist()
-        company_id = current_website.company_id
+        company_id = current_website.company_id.sudo()
 
         context = dict(self._context, pricelist=pricelist.id, partner=partner)
         self2 = self.with_context(context) if self._context != context else self

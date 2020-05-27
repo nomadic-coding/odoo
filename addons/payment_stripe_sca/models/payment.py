@@ -236,7 +236,8 @@ class PaymentTransactionStripeSCA(models.Model):
             self.write(vals)
             if self.sudo().callback_eval:
                 safe_eval(self.sudo().callback_eval, {'self': self})
-            if self.type == "form_save":
+            if (self.type == 'form_save' or self.acquirer_id.save_token == 'always') \
+                    and not self.payment_token_id:
                 s2s_data = {
                     "customer": tree.get("customer"),
                     "payment_method": tree.get("payment_method"),
